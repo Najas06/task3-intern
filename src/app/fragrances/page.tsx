@@ -5,7 +5,7 @@ import ProductCard from '@/components/ProductCard';
 import { IProduct } from '@/type/product';
 import React, { useEffect, useState } from 'react'
 
-const page = () => {
+const FragrancesPage = () => {
     const [fragrances, setFragrances] = useState<IProduct[]>([]);
     const fetchProducts = async () => {
         const response = await fetch('https://dummyjson.com/products/category/fragrances');
@@ -32,6 +32,7 @@ const page = () => {
               // const title = item.title
               return (
                 <ProductCard
+                  key={item.id}
                   title={item.title.slice(0, 20)}
                   category={item.category}
                   img={item.thumbnail}
@@ -47,4 +48,4 @@ const page = () => {
   )
 }
 
-export default page
+export default FragrancesPage

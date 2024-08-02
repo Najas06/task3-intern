@@ -4,7 +4,7 @@ import ProductCard from "@/components/ProductCard";
 import { IProduct } from "@/type/product";
 import { useEffect, useState } from "react";
 
-const page = () => {
+const MenPage = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
   const [shoes, setShoes] = useState<IProduct[]>([]);
   const [watch, setWatch] = useState<IProduct[]>([]);
@@ -28,7 +28,7 @@ const page = () => {
     const data3: { products: IProduct[] } = await response3.json();
     setWatch(data3.products);
   };
-  console.log(products);
+  // console.log(products);
 
   useEffect(() => {
     productFetch();
@@ -48,6 +48,7 @@ const page = () => {
             // const title = item.title
             return (
               <ProductCard
+                key={item.id}
                 title={item.title.slice(0, 20)}
                 category={item.category}
                 img={item.thumbnail}
@@ -65,6 +66,7 @@ const page = () => {
             // const title = item.title
             return (
               <ProductCard
+                key={item.id}
                 title={item.title.slice(0, 20)}
                 category={item.category}
                 img={item.thumbnail}
@@ -82,6 +84,7 @@ const page = () => {
             // const title = item.title
             return (
               <ProductCard
+                key={item.id}
                 title={item.title.slice(0, 20)}
                 category={item.category}
                 img={item.thumbnail}
@@ -96,4 +99,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default MenPage;

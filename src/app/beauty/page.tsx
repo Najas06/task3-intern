@@ -5,7 +5,7 @@ import ProductCard from '@/components/ProductCard';
 import { IProduct } from '@/type/product';
 import React, { useEffect, useState } from 'react'
 
-const page = () => {
+const BeautyPage = () => {
     const [beauty, setBeauty] = useState<IProduct[]>([]);
 
     const fetchProducts = async () => {
@@ -30,9 +30,8 @@ const page = () => {
           </p>
           <div className="grid grid-cols-3 gap-8 mt-10 max-lg:grid-cols-2 max-sm:grid-cols-1 max-lg:items-center max-lg:justify-center max-sm:flex max-sm:flex-col">
             {beauty.map((item) => {
-              // const title = item.title
               return (
-                <ProductCard
+                <ProductCard key={item.id}
                   title={item.title.slice(0, 20)}
                   category={item.category}
                   img={item.thumbnail}
@@ -48,4 +47,4 @@ const page = () => {
   )
 }
 
-export default page
+export default BeautyPage

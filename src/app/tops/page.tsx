@@ -5,7 +5,7 @@ import ProductCard from "@/components/ProductCard";
 import { IProduct } from "@/type/product";
 import React, { useEffect, useState } from "react";
 
-const Page = () => {
+const TopPage = () => {
   const [top, setTop] = useState<IProduct[]>([]);
 
   const fetchProducts = async () => {
@@ -35,6 +35,7 @@ const Page = () => {
               // const title = item.title
               return (
                 <ProductCard
+                  key={item.id}
                   title={item.title.slice(0, 20)}
                   category={item.category}
                   img={item.thumbnail}
@@ -50,4 +51,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default TopPage;

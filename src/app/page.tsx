@@ -31,6 +31,7 @@ export default function Home() {
             return (
               
                 <ProductCard
+                  key={item.id}
                   title={item.title.slice(0, 20)}
                   category={item.category}
                   img={item.thumbnail}
